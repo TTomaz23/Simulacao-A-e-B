@@ -1,0 +1,51 @@
+Código criado por:
+	Raphael do Espirito Santo Nascimento 	RA: 186305
+		ME323 Turma B
+	Allan Borgato				RA: 165416
+		ME323 Turma B
+	Bruno Eduardo Freire e Silva		RA: 195052
+		ME323 Turma B
+
+COMO SIMULAR:
+	1.Escolha as quantidades da simulação, em verde na planilha, sendo elas:
+		1.1. Quantidade de Eleitores (Célula "C3")
+			1.1.1. Representa a quantidade de votos que serão gerados
+		1.2. Quantidade de Amostras (Célula "I3")
+			1.2.1. Representa a quantidade de vezes que as amostras 1 e 2 serão coletadas
+		1.3. Quantidade das Amostras (Células "L12" e "P12")
+			1.3.1. Representam quantos votos serão considerados em cada amostra
+		1.4. Probabilidade do voto ser no candidato A (Célula "C10")
+			1.4.1. Representa a chance de alguém ter votado em A
+	2. Clique no botão "Gerar novos votos"
+		- A quantidade de votos em 1.1 será gerada
+	3. Clique no botão "Contar amostras"
+		- A quantidade de amostras em 1.2 será gerada, com os valores de 1.3 sendo a quantidade de votos em cada
+	4. Os gráficos serão atualizados automaticamente no final da coleta de amostras
+	5. A média e desvio padrão são atualizados com o decorrer da simulação
+
+IMPORTANTE:
+	O tempo de simulação depende dos valores escolhidos, valores muito altos deixam a simulação lenta
+
+
+SOBRE O CÓDIGO:
+	1. O código foi escrito em linguagem VBA
+		1.1. Para visualizá-lo, aperte Alt+F11 e clique duas vezes em Plan1(Simulação)
+	2. Sobre os votos dos eleitores
+		2.1. Para cada eleitor entre 1 e o valor em "C3", será gerado um número aleatório entre 0 e 1
+			2.1.1. Caso o número seja maior que a probabilidade de A ser escolhido, definido em "C10", o candidado B será escolhido
+				2.1.1.1. Note que o candidato B será escolhido somente se a proporção de B for inferior a proporção escolhida
+					2.1.1.1.1. Caso B seja igual a porcentagem definida da quantidade de eleitores, será escolhido um candidato A
+			2.1.2. Caso contrário, o candidato A será escolhido
+				2.1.2.1. Note que o candidato A será escolhido somente se a proporção de A for inferior a proporção escolhida
+					2.1.2.1.1. Caso A seja igual a porcentagem definida da quantidade de eleitores, será escolhido um candidato B
+	3. Sobre as amostras
+		3.1. Para cada amostra, será:
+			3.1.1. Escolhido um eleitor aleatóriamente entre todos os possíveis
+			3.1.2. Somado o valor do seu voto aos votos em B
+			3.1.3. Repetido os passos anteriores na quantidade de votos em cada amostra
+			3.1.4. Subtraído esse valor da quantidade de votos totais considerados, sendo o resultados a quantidade de votos em A
+			3.1.5. Calculado a proporção de A em relação aos votos considerados
+			3.1.6. Repetido os passos anteriores na quantidade de amostras desejadas
+		3.2. Esse método considera amostras com reposição, visto que podem ser sorteados dois números aleatórios iguais
+	4. Sobre os cálculos
+		4.1. Com o decorrer da simulação, é calculado automaticamente a média, através da fórmula "=MÉDIA('Valores')" e o desvio padrão, com a fórmula "=DESVPAD('valores')"
