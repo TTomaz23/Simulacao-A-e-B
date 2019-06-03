@@ -1,0 +1,3 @@
+Comentário sobre os resultados: A média não varia tanto, apesar da diferença do tamanho da amostra, pois o número de simulações é grande (2000).
+Entretanto desvio-padrão é inversamente proporcional ao tamanho da amostra, de forma que para amostras de tamanho 10 o desvio-padrão foi por volta 7 vezes maior do que o desvio-padrão para amostras de tamanho 500.
+Essa discrepância é esperada, já que a fórmula que descreve o desvio-padrão em função do tamanho das amostras n e da probabilidade p é: Raiz(p*(1-p) / n).
